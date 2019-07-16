@@ -10,7 +10,10 @@ namespace BTNE
         [MenuItem("BTNE/Launch BT Node Editor")]
         public static void InitNodeEditor()
         {
-            NodeEditorWindow.InitEditorWindow();
+            NodeEditorWindow m_mainWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
+            m_mainWindow.titleContent = new GUIContent("BTNE");
+
+            m_mainWindow.InitEditorWindow();
         }
     }
 }

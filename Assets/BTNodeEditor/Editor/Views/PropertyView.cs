@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 namespace BTNE
 {
+    [System.Serializable]
     public class PropertyView : ViewBase
     {
         public PropertyView() : base("Property View")
@@ -11,9 +13,9 @@ namespace BTNE
 
         }
 
-        public override void UpdateView(Rect _editorRect, Rect _percentageRect, Event _e)
+        public override void UpdateView(Rect _editorRect, Rect _percentageRect, Event _e, NodeGraph _nodeGraph)
         {
-            base.UpdateView(_editorRect, _percentageRect, _e);
+            base.UpdateView(_editorRect, _percentageRect, _e, _nodeGraph);
 
             ProcessEvents(_e);
         }

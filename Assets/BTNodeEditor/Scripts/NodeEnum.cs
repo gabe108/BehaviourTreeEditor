@@ -4,18 +4,10 @@ using UnityEngine;
 
 namespace BTNE
 {
-    public class NodeEnum : MonoBehaviour
+   public enum NodeType
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        ADD_NODE,
 
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        COUNT
     }
 }
