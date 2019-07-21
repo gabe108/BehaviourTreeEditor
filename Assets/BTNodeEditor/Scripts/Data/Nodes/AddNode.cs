@@ -31,9 +31,9 @@ namespace BTNE
         }
 
         #if UNITY_EDITOR
-        public override void UpdateNodeGUI(Event _e, Rect _viewRect)
+        public override void UpdateNodeGUI(Event _e, Rect _viewRect, GUISkin _skin)
         {
-            base.UpdateNodeGUI(_e, _viewRect);
+            base.UpdateNodeGUI(_e, _viewRect, _skin);
         }
         #endif
     }

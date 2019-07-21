@@ -12,13 +12,15 @@ namespace BTNE
     public class BaseNode : ScriptableObject
     {
         #region Variables
-        [SerializeField] protected string m_nodeName = "New Node";
+        public bool m_isSelected = false;
 
+        [SerializeField] protected string m_nodeName = "New Node";
         [SerializeField] protected NodeGraph m_parentGraph;
         [SerializeField] protected GUISkin m_nodeSkin;
         [SerializeField] protected Rect m_nodeRect;
         [SerializeField] protected NodeType m_nodeType;
         #endregion
+
 
         #region GettersAndSetters
         public void SetNodeRect(int _x, int _y, int _width, int _height)
@@ -46,11 +48,11 @@ namespace BTNE
         }
 
         #if UNITY_EDITOR
-        public virtual void UpdateNodeGUI(Event _e, Rect _viewRect)
+        public virtual void UpdateNodeGUI(Event _e, Rect _viewRect, GUISkin _skin)
         {
             ProcessEvents(_e, _viewRect);
 
-            GUI.Box(m_nodeRect, m_nodeName);
+            GUI.Box(m_nodeRect, m_nodeName/*, _skin.GetStyle("NodeDefault")*/);
 
             EditorUtility.SetDirty(this);
         }
@@ -58,17 +60,17 @@ namespace BTNE
 
         public void ProcessEvents(Event _e, Rect _viewRect)
         {
-            if (_e.type == EventType.MouseDrag)
+            if (m_isSelected)
             {
                 if (_viewRect.Contains(_e.mousePosition))
                 {
-                    if (m_nodeRect.Contains(_e.mousePosition))
+                    if (_e.type == EventType.MouseDrag)
                     {
                         m_nodeRect.x += _e.delta.x;
                         m_nodeRect.y += _e.delta.y;
                     }
                 }
-            }        
+            }
         }
     }
 }

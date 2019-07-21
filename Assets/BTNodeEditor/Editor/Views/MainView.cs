@@ -17,15 +17,11 @@ namespace BTNE
         public override void UpdateView(Rect _editorRect, Rect _percentageRect, Event _e, NodeGraph _nodeGraph)
         {
             base.UpdateView(_editorRect, _percentageRect, _e, _nodeGraph);
-
-            GUILayout.BeginArea(m_viewRect);
-
+            
             if (m_currGraph != null)
             {
-                m_currGraph.UpdateGraphView(_e, GetViewRect());
+                m_currGraph.UpdateGraphView(_e, GetViewRect(), GetViewSkin());
             }
-
-            GUILayout.EndArea();
 
             ProcessEvents(_e);
         }
