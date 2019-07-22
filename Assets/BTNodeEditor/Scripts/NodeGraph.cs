@@ -55,9 +55,15 @@ namespace BTNE
             if(m_nodes.Count > 0)
             {
                 ProcessEvents(_e, _viewRect);
-                foreach(BaseNode node in m_nodes)
+                NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
+                if (curWindow != null)
                 {
-                    node.UpdateNodeGUI(_e, _viewRect, _viewSkin);
+                    curWindow.BeginWindows();
+                    foreach (BaseNode node in m_nodes)
+                    {
+                        node.UpdateNodeGUI(_e, _viewRect, _viewSkin);
+                    }
+                    curWindow.EndWindows();
                 }
             }
 
@@ -67,36 +73,7 @@ namespace BTNE
 
         public void ProcessEvents(Event _e, Rect _viewRect)
         {
-            if (_viewRect.Contains(_e.mousePosition))
-            {
-                if (_e.button == 0)
-                {
-                    if (_e.type == EventType.MouseDown)
-                    {
-                        DeSelectAllNodes();
-                        bool setNode = false;
-                        m_selectedNode = null;
-                        foreach(BaseNode node in m_nodes)
-                        {
-                            if(node.GetNodeRect().Contains(_e.mousePosition))
-                            {
-                                node.m_isSelected = true;
-                                m_selectedNode = node;
-                                setNode = true;
-                            }
-                        }
-
-                        if (!setNode)
-                            DeSelectAllNodes();
-                    }
-                }
-            }
-        }
-
-        private void DeSelectAllNodes()
-        {
-            foreach (BaseNode node in m_nodes)
-                node.m_isSelected = false;
+            
         }
     }
 }

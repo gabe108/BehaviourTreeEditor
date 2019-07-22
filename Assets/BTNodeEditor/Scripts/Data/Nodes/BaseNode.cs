@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -12,12 +13,10 @@ namespace BTNE
     public class BaseNode : ScriptableObject
     {
         #region Variables
-        public bool m_isSelected = false;
-
         [SerializeField] protected string m_nodeName = "New Node";
         [SerializeField] protected NodeGraph m_parentGraph;
         [SerializeField] protected GUISkin m_nodeSkin;
-        [SerializeField] protected Rect m_nodeRect;
+        [SerializeField] protected Rect m_nodeRect = new Rect(0, 0, 0, 0);
         [SerializeField] protected NodeType m_nodeType;
         #endregion
 
@@ -32,7 +31,6 @@ namespace BTNE
         }
 
         public void SetParentGraph(NodeGraph _parentGraph) { m_parentGraph = _parentGraph; }
-
         public NodeType GetNodeType() { return m_nodeType; }
         public Rect GetNodeRect() { return m_nodeRect; }
         #endregion
@@ -52,25 +50,26 @@ namespace BTNE
         {
             ProcessEvents(_e, _viewRect);
 
-            GUI.Box(m_nodeRect, m_nodeName/*, _skin.GetStyle("NodeDefault")*/);
+            NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
+            if (curWindow != null)
+            {
+                int index = curWindow.GetCurrentGraph().m_nodes.IndexOf(this);
+                
+                m_nodeRect = GUI.Window(index, m_nodeRect, DoMyWindow, m_nodeName);
+            }
 
             EditorUtility.SetDirty(this);
         }
-#endif
+
+        private void DoMyWindow(int id)
+        {            
+            GUI.DragWindow();
+        }
+        #endif
 
         public void ProcessEvents(Event _e, Rect _viewRect)
         {
-            if (m_isSelected)
-            {
-                if (_viewRect.Contains(_e.mousePosition))
-                {
-                    if (_e.type == EventType.MouseDrag)
-                    {
-                        m_nodeRect.x += _e.delta.x;
-                        m_nodeRect.y += _e.delta.y;
-                    }
-                }
-            }
+           
         }
     }
 }

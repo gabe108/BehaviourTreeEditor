@@ -62,7 +62,6 @@ namespace BTNE
             m_mainView.UpdateView(position, new Rect(0f, 0f, m_viewPercentage, 1f), e, m_currGraph);
             m_propertyView.UpdateView(new Rect(position.width, position.y, position.width, position.height),
                                       new Rect(m_viewPercentage, 0f, 1f - m_viewPercentage, 1f), e, m_currGraph);
-            
             Repaint();
             EditorUtility.SetDirty(this);
         }

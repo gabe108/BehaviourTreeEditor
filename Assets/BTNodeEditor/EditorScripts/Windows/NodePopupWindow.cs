@@ -42,7 +42,7 @@ namespace BTNE
             EditorGUILayout.LabelField(new GUIContent(m_wantedPath));
             if (GUILayout.Button("Browse", GUILayout.Height(20)))
             {
-                m_wantedPath = EditorUtility.SaveFolderPanel("Browse", "", "");
+                m_wantedPath = EditorUtility.SaveFolderPanel("Browse", "Asset/", "");
             }
 
             GUILayout.EndHorizontal();

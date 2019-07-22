@@ -96,10 +96,6 @@ namespace BTNE
                         (int)curNode.GetNodeRect().height);
                     curNode.SetParentGraph(_currGraph);
                     _currGraph.m_nodes.Add(curNode);
-
-                    AssetDatabase.AddObjectToAsset(curNode, _currGraph);
-                    AssetDatabase.SaveAssets();
-                    AssetDatabase.Refresh();
                 }
             }
         }
