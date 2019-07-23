@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 namespace BTNE
 {
     [System.Serializable]
-    public class ViewBase : object
+    public class ViewBase 
     {
         #region Variables
-        [SerializeField] private string m_viewTitle;
+        [SerializeField] protected string m_viewTitle;
 
         [SerializeField] protected Rect m_viewRect;
         [SerializeField] protected NodeGraph m_currGraph;
@@ -56,6 +57,11 @@ namespace BTNE
             }
 
             GUI.Box(m_viewRect, m_viewTitle, GetViewSkin().GetStyle("BTNE Node Editor"));
+        }
+
+        protected virtual void DoMyWindow(int id)
+        {
+            
         }
 
         public virtual void ProcessEvents(Event _e) { }

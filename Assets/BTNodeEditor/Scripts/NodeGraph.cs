@@ -56,6 +56,7 @@ namespace BTNE
             {
                 ProcessEvents(_e, _viewRect);
                 NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
+                
                 if (curWindow != null)
                 {
                     curWindow.BeginWindows();
@@ -66,7 +67,6 @@ namespace BTNE
                     curWindow.EndWindows();
                 }
             }
-
             EditorUtility.SetDirty(this);
         }
         #endif

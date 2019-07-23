@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6ae2c47771ba8241a992119e7d9b4ed, type: 3}
-  m_Name: sdasdas
+  m_Name: asd
   m_EditorClassIdentifier: 
   m_nodes:
   - {fileID: 0}
+  - {fileID: 0}
   m_selectedNode: {fileID: 0}
-  m_graphName: sdasdas
+  m_graphName: asd

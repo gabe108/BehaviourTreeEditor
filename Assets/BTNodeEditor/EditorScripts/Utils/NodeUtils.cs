@@ -27,6 +27,7 @@ namespace BTNE
                 if(curWindow != null)
                 {
                     curWindow.SetCurrentGraph(curGraph);
+                    CreateNode(curGraph, NodeType.ROOT_NODE, curWindow.GetMainView().GetViewRect().center);
                 }
                 else
                 {
@@ -71,15 +72,35 @@ namespace BTNE
             }
         }
 
-        public static void CreateNode(NodeGraph _currGraph, NodeType _nodeType, Vector2 mousePos)
+        public static void CreateNode(NodeGraph _currGraph, NodeType _nodeType, Vector2 _pos)
         {
             if(_currGraph != null)
             {
                 BaseNode curNode = null;
                 switch (_nodeType)
                 {
+                    case NodeType.ROOT_NODE:
+                        curNode = ScriptableObject.CreateInstance<RootNode>() as RootNode;
+                        break;
+
                     case NodeType.ADD_NODE:
                         curNode = ScriptableObject.CreateInstance<AddNode>() as AddNode;
+                        break;
+
+                    case NodeType.SELECTOR_NODE:
+                        curNode = ScriptableObject.CreateInstance<SelectorNode>() as SelectorNode;
+                        break;
+
+                    case NodeType.SEQUENCE_NODE:
+                        curNode = ScriptableObject.CreateInstance<SequenceNode>() as SequenceNode;
+                        break;
+
+                    case NodeType.INVERTER_NODE:
+                        curNode = ScriptableObject.CreateInstance<InverterNode>() as InverterNode;
+                        break;
+
+                    case NodeType.ACTION_NODE:
+                        curNode = ScriptableObject.CreateInstance<ActionNode>() as ActionNode;
                         break;
 
                     default:
@@ -90,8 +111,8 @@ namespace BTNE
                 {
                     curNode.InitNode();
                     curNode.SetNodeRect(    
-                        (int)mousePos.x, 
-                        (int)mousePos.y, 
+                        (int)_pos.x, 
+                        (int)_pos.y, 
                         (int)curNode.GetNodeRect().width, 
                         (int)curNode.GetNodeRect().height);
                     curNode.SetParentGraph(_currGraph);
