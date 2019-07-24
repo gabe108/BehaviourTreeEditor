@@ -22,7 +22,7 @@ MonoBehaviour:
   m_connectionFrom: {fileID: 0}
   m_connections: []
   m_actor: {fileID: 0}
-  m_selectedNode: {fileID: 0}
+  m_selectedNode: {fileID: 114305907028891200}
   m_graphName: Enter asname..
   m_isMakingConnection: 0
   m_connectionStart: {x: 392, y: 740.5, z: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 381.5
+    x: 391.5
     y: 223
     width: 10
     height: 10
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 304
+    x: 314
     y: 68
     width: 150
     height: 150
@@ -116,8 +116,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 161.5
-    y: 606
+    x: 216.5
+    y: 611
     width: 10
     height: 10
   m_connectedTo: {fileID: 114668475440353118}
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 99
-    y: 451
+    x: 154
+    y: 456
     width: 150
     height: 150
   m_nodeType: 2
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 366.5
+    x: 376.5
     y: 223
     width: 10
     height: 10
@@ -312,8 +312,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 167.5
-    y: 433
+    x: 222.5
+    y: 438
     width: 13
     height: 13
   m_connectedTo: {fileID: 114496371129795810}
@@ -363,7 +363,7 @@ MonoBehaviour:
   m_outputs:
   - {fileID: 0}
   m_details: has Water
-  m_nodeState: 1
+  m_nodeState: 0
   m_nodeName: Action Node
   m_parentGraph: {fileID: 11400000}
   m_nodeSkin: {fileID: 0}
@@ -374,7 +374,7 @@ MonoBehaviour:
     width: 150
     height: 150
   m_nodeType: 4
-  m_actionType: 0
+  m_actionType: 2
 --- !u!114 &114593877492175324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,14 +392,14 @@ MonoBehaviour:
   m_outputs:
   - {fileID: 0}
   m_details: 
-  m_nodeState: 0
+  m_nodeState: 1
   m_nodeName: Action Node
   m_parentGraph: {fileID: 11400000}
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 317
-    y: 752
+    x: 257
+    y: 727
     width: 150
     height: 150
   m_nodeType: 4
@@ -498,8 +498,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 385.5
-    y: 734
+    x: 325.5
+    y: 709
     width: 13
     height: 13
   m_connectedTo: {fileID: 114956535228931464}
@@ -520,8 +520,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 176.5
-    y: 606
+    x: 231.5
+    y: 611
     width: 10
     height: 10
   m_connectedTo: {fileID: 114882996558558668}

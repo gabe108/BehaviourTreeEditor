@@ -33,6 +33,7 @@ namespace BTNE
         public Vector3 GetConnectionStart() { return m_connectionStart; }
         public ConnectionType GetConnectionType() { return m_connectorType; }
 
+        public void SetSelectedNode(BaseNode _baseNode) { m_selectedNode = _baseNode; }
         public void SetIsMakingConnection(bool _isMakingConnection) { m_isMakingConnection = _isMakingConnection; }
         public void SetConnectionStart(Vector3 _connectionStart) { m_connectionStart = _connectionStart; }
         public void SetConnectionType(ConnectionType _connectorType) { m_connectorType = _connectorType; }
@@ -101,6 +102,7 @@ namespace BTNE
         {
 
         }
+
     }
 
     [System.Serializable]

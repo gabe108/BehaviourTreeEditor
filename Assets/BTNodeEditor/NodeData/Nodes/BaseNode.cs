@@ -54,6 +54,7 @@ namespace BTNE
         public void SetNodeRect(Rect _rect) { m_nodeRect = _rect; }
         public void SetParentGraph(NodeGraph _parentGraph) { m_parentGraph = _parentGraph; }
 
+        public string GetNodeName() { return m_nodeName; }
         public NodeType GetNodeType() { return m_nodeType; }
         public Rect GetNodeRect() { return m_nodeRect; }
         public NodeStates GetNodeState() { return m_nodeState; }
@@ -109,8 +110,10 @@ namespace BTNE
 
             GUI.color = Color.white;
             foreach (NodeInput input in m_inputs)
-                input.UpdateGUI(this, curWindow);
-
+            {
+                if(input != null)
+                    input.UpdateGUI(this, curWindow);
+            }
             foreach (NodeOutput output in m_outputs)
             {
                 if(output != null)
@@ -120,7 +123,14 @@ namespace BTNE
         }
 
         private void DoMyWindow(int id)
-        {            
+        {
+            //m_parentGraph.SetSelectedNode(this);
+            Event e = Event.current;
+            if (e.type == EventType.MouseDown && e.button == 0)
+            {
+                if (m_parentGraph != null)
+                    m_parentGraph.SetSelectedNode(this);
+            }
             GUI.DragWindow();
         }
         #endif
@@ -129,11 +139,12 @@ namespace BTNE
         {
             if (m_nodeRect.Contains(_e.mousePosition))
             {
+                NodeGraph graph = (EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow).GetCurrentGraph();
                 if (_e.type == EventType.Layout && _e.button == 1)
-                {
-                    NodeGraph graph = (EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow).GetCurrentGraph();
-                    if(graph != null)
+                {                    
+                    if (graph != null)
                         graph.SetIsMakingConnection(false);
+
                     ProcessContextMenu(_e);
                 }
             }
