@@ -64,6 +64,9 @@ namespace BTNE
             
         }
 
-        public virtual void ProcessEvents(Event _e) { }
+        public virtual void ProcessEvents(Event _e)
+        {
+
+        }
     }
 }

@@ -5,12 +5,14 @@ using UnityEngine;
 namespace BTNE
 {
     [System.Serializable]
-    public class NodeOutput
+    public class NodeOutput : BaseNodeIO
     {
-        public bool m_isOccupied = false;
-        public BaseNode m_inputNode;
+        public NodeOutput()
+        {
+            m_type = ConnectionType.OUTPUT;
+        }
 
-        public void UpdateGUI(BaseNode _node, NodeEditorWindow _curWindow)
+        public override void UpdateGUI(BaseNode _node, NodeEditorWindow _curWindow)
         {
             Rect nodeRect = _node.GetNodeRect();
             Rect tmp = new Rect();
@@ -28,20 +30,13 @@ namespace BTNE
                     ((tmp.width + offset) * indexOfThis);
 
             tmp.y = nodeRect.y + (nodeRect.height + offset);
-            if (GUI.Button(tmp, new GUIContent("")))
+            m_IORect = tmp;
+
+            base.UpdateGUI(_node, _curWindow);
+
+            if (m_connectedTo != null && m_isOccupied)
             {
-                Debug.Log("Output " + _node.m_outputs.IndexOf(this) + " Clicked");
-
-                if(_curWindow.GetIsMakingConnection() && _curWindow.GetConnectionType() == ConnectionType.INPUT)
-                {
-
-                }
-                else if (!_curWindow.GetIsMakingConnection())
-                {
-                    //_curWindow.SetIsMakingConnection(true);
-                    _curWindow.SetConnectionType(ConnectionType.OUTPUT);
-                    _curWindow.SetConnectionStart(tmp.center);
-                }
+                UnityEditor.Handles.DrawLine(m_IORect.center, m_connectedTo.m_IORect.center);
             }
         }
     }

@@ -27,7 +27,7 @@ namespace BTNE
                 if(curWindow != null)
                 {
                     curWindow.SetCurrentGraph(curGraph);
-                    CreateNode(curGraph, NodeType.ROOT_NODE, curWindow.GetMainView().GetViewRect().center);
+                    //CreateNode(curGraph, NodeType.ROOT_NODE, curWindow.GetMainView().GetViewRect().center);
                 }
                 else
                 {
@@ -70,6 +70,7 @@ namespace BTNE
             {
                 EditorUtility.DisplayDialog("Error Something Worng", "Something went wrong in getting the current window", "Ok");
             }
+            curWindow.Repaint();
         }
 
         public static void CreateNode(NodeGraph _currGraph, NodeType _nodeType, Vector2 _pos)
@@ -117,6 +118,10 @@ namespace BTNE
                         (int)curNode.GetNodeRect().height);
                     curNode.SetParentGraph(_currGraph);
                     _currGraph.m_nodes.Add(curNode);
+
+                    AssetDatabase.AddObjectToAsset(curNode, _currGraph);
+                    AssetDatabase.SaveAssets();
+                    AssetDatabase.Refresh();
                 }
             }
         }

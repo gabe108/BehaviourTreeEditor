@@ -14,10 +14,6 @@ namespace BTNE
         [SerializeField] private PropertyView m_propertyView;
         [SerializeField] private MainView m_mainView;
         [SerializeField] private NodeGraph m_currGraph;
-        [SerializeField] private bool m_isMakingConnection;
-        [SerializeField] private Vector3 m_connectionStart;
-        [SerializeField] private ConnectionType m_connectorType;
-
         private static float m_viewPercentage = 0.75f;
         #endregion
 
@@ -25,14 +21,8 @@ namespace BTNE
         public NodeGraph GetCurrentGraph() { return m_currGraph; }
         public MainView GetMainView() { return m_mainView; }
         public PropertyView GetpropertyView() { return m_propertyView; }
-        public bool GetIsMakingConnection() { return m_isMakingConnection; }
-        public Vector3 GetConnectionStart() { return m_connectionStart; }
-        public ConnectionType GetConnectionType() { return m_connectorType; }
 
         public void SetCurrentGraph(NodeGraph _graph) { m_currGraph = _graph; }
-        public void SetIsMakingConnection(bool _isMakingConnection) { m_isMakingConnection = _isMakingConnection; }
-        public void SetConnectionStart(Vector3 _connectionStart) { m_connectionStart = _connectionStart; }
-        public void SetConnectionType(ConnectionType _connectorType) { m_connectorType = _connectorType; }
         #endregion
 
         public void InitEditorWindow()
@@ -43,7 +33,7 @@ namespace BTNE
         // When you open the window
         private void OnEnable()
         {
-            
+
         }
 
         // When we close the window
@@ -55,7 +45,8 @@ namespace BTNE
         // 60-70 frames per second
         private void Update()
         {
-            
+            if(m_currGraph != null)
+                m_currGraph.UpdateGraph();
         }
 
         // Twice every update
@@ -73,9 +64,6 @@ namespace BTNE
             m_mainView.UpdateView(position, new Rect(0f, 0f, m_viewPercentage, 1f), e, m_currGraph);
             m_propertyView.UpdateView(new Rect(position.width, position.y, position.width, position.height),
                                       new Rect(m_viewPercentage, 0f, 1f - m_viewPercentage, 1f), e, m_currGraph);
-
-            if(m_isMakingConnection)
-                Handles.DrawLine(m_connectionStart, e.mousePosition);
 
             Repaint();
             EditorUtility.SetDirty(this);
@@ -100,11 +88,6 @@ namespace BTNE
             {
                 m_mainWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
             }
-        }
-
-        private void DrawConnection()
-        {
-
         }
     }
 }

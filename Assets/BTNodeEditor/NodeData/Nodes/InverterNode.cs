@@ -23,7 +23,26 @@ namespace BTNE
 
         public override NodeStates Evaluate()
         {
-            throw new System.NotImplementedException();
+            mDebug();
+
+            if (m_outputs[0].m_connectedTo != null)
+            {
+                BaseNode node = m_outputs[0].m_connectedTo.m_holderNode;
+                switch (node.Evaluate())
+                {
+                    case NodeStates.FAILURE:
+                        m_nodeState = NodeStates.SUCCESS;
+                        return m_nodeState;
+                    case NodeStates.SUCCESS:
+                        m_nodeState = NodeStates.FAILURE;
+                        return m_nodeState;
+                    case NodeStates.RUNNING:
+                        m_nodeState = NodeStates.RUNNING;
+                        return m_nodeState;
+                }
+            }
+            m_nodeState = NodeStates.SUCCESS;
+            return m_nodeState;
         }
 
         public override void UpdateNode(Event _e, Rect _viewRect)

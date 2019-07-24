@@ -32,6 +32,7 @@ namespace BTNE
         #region Variables
         public List<NodeInput> m_inputs;
         public List<NodeOutput> m_outputs;
+        public string m_details;
 
         [SerializeField] protected NodeStates m_nodeState;
         [SerializeField] protected string m_nodeName = "New Node";
@@ -67,10 +68,18 @@ namespace BTNE
             m_inputs = new List<NodeInput>();
 
             if (m_nodeType != NodeType.ROOT_NODE)
-                m_inputs.Add(new NodeInput());
+            {
+                NodeInput input = new NodeInput();
+                input.m_holderNode = this;
+                
+                m_inputs.Add(input);
+            }
 
             m_outputs = new List<NodeOutput>();
-            m_outputs.Add(new NodeOutput());
+            NodeOutput output = new NodeOutput();
+            output.m_holderNode = this;
+
+            m_outputs.Add(output);
         }
 
         public abstract NodeStates Evaluate();
@@ -87,18 +96,26 @@ namespace BTNE
             if (curWindow != null)
             {
                 int index = curWindow.GetCurrentGraph().m_nodes.IndexOf(this);
-                
+
+                if(index == 0)
+                    GUI.color = Color.blue;
+                else
+                    GUI.color = Color.white;
+
                 m_nodeRect = GUI.Window(index, m_nodeRect, DoMyWindow, m_nodeName);
             }
 
             ProcessEvents(Event.current);
 
+            GUI.color = Color.white;
             foreach (NodeInput input in m_inputs)
                 input.UpdateGUI(this, curWindow);
 
             foreach (NodeOutput output in m_outputs)
-                output.UpdateGUI(this, curWindow);
-
+            {
+                if(output != null)
+                    output.UpdateGUI(this, curWindow);
+            }
             EditorUtility.SetDirty(this);
         }
 
@@ -114,6 +131,9 @@ namespace BTNE
             {
                 if (_e.type == EventType.Layout && _e.button == 1)
                 {
+                    NodeGraph graph = (EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow).GetCurrentGraph();
+                    if(graph != null)
+                        graph.SetIsMakingConnection(false);
                     ProcessContextMenu(_e);
                 }
             }
@@ -123,8 +143,8 @@ namespace BTNE
         {
             GenericMenu menu = new GenericMenu();
 
-            menu.AddItem(new GUIContent("Add Child"), false, CallbackOnContextMenu, "0");
-            menu.AddItem(new GUIContent("Delete All Children"), false, CallbackOnContextMenu, "1");
+            menu.AddItem(new GUIContent("Delete Node"), false, CallbackOnContextMenu, "0");
+            menu.AddItem(new GUIContent("Mark this as Root Node"), false, CallbackOnContextMenu, "1");
 
             menu.AddSeparator("");
             menu.AddItem(new GUIContent("Add Output"), false, CallbackOnContextMenu, "2");
@@ -135,21 +155,41 @@ namespace BTNE
         private void CallbackOnContextMenu(object obj)
         {
             string str = obj.ToString();
+            List<BaseNode> nodes;
+            int index = 0;
             switch (str)
             {
                 case "0":
+                    nodes = m_parentGraph.m_nodes;
+                    index = nodes.IndexOf(this);
+                    //if(nodes[index].)
+                    m_parentGraph.m_nodes.RemoveAt(index);
                     break;
 
                 case "1":
+                    nodes = m_parentGraph.m_nodes;
+                    index = nodes.IndexOf(this);
+                    BaseNode tmp = nodes[0];
+                    nodes[0] = nodes[index];
+                    nodes[index] = tmp;
+                    m_parentGraph.m_nodes = nodes;
                     break;
 
                 case "2":
-                    m_outputs.Add(new NodeOutput());
+                    NodeOutput output = new NodeOutput();
+                    output.m_holderNode = this;
+
+                    m_outputs.Add(output);
                     break;
 
                 default:
                     break;
             }
+        }
+
+        public void mDebug()
+        {
+            Debug.Log(m_details);
         }
     }   
 }

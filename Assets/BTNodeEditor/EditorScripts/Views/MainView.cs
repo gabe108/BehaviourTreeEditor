@@ -49,7 +49,9 @@ namespace BTNE
 
                     if(_e.type == EventType.MouseDown)
                     {
-
+                        NodeGraph graph = (EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow).GetCurrentGraph();
+                        if (graph != null)
+                            graph.SetIsMakingConnection(false);
                     }
 
                     if(_e.type == EventType.MouseDrag)
@@ -62,6 +64,10 @@ namespace BTNE
                 {
                     if(_e.type == EventType.MouseDown)
                     {
+                        NodeGraph graph = (EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow).GetCurrentGraph();
+                        if (graph != null)
+                            graph.SetIsMakingConnection(false);
+                        
                         m_mousePosition = _e.mousePosition;
                         ProcessContextMenu(_e);
                     }
@@ -71,6 +77,10 @@ namespace BTNE
                    (_e.button == 0 && _e.modifiers == EventModifiers.Alt) ||
                     _e.button == 2)
                 {
+                    NodeGraph graph = (EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow).GetCurrentGraph();
+                    if (graph != null)
+                        graph.SetIsMakingConnection(false);
+
                     Vector2 delta = _e.delta;
 
                     foreach(BaseNode node in m_currGraph.m_nodes)
@@ -84,8 +94,12 @@ namespace BTNE
 
                 if (_e.type == EventType.ScrollWheel)
                 {
-                    zoomScale += _e.delta.x * 0.01f;
-                    zoomScale += _e.delta.y * 0.01f;
+                    NodeGraph graph = (EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow).GetCurrentGraph();
+                    if (graph != null)
+                        graph.SetIsMakingConnection(false);
+
+                    zoomScale -= _e.delta.x * 0.01f;
+                    zoomScale -= _e.delta.y * 0.01f;
                 }
             }
         }
