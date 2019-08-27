@@ -12,7 +12,8 @@ namespace BTNE
             m_type = ConnectionType.OUTPUT;
         }
 
-        public override void UpdateGUI(BaseNode _node, NodeEditorWindow _curWindow)
+#if UNITY_EDITOR
+		public override void UpdateGUI(BaseNode _node, NodeEditorWindow _curWindow)
         {
             Rect nodeRect = _node.GetNodeRect();
             Rect tmp = new Rect();
@@ -39,5 +40,6 @@ namespace BTNE
                 UnityEditor.Handles.DrawLine(m_IORect.center, m_connectedTo.m_IORect.center);
             }
         }
-    }
+#endif
+	}
 }

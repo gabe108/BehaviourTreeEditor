@@ -6,7 +6,8 @@ using System;
 
 namespace BTNE
 {
-    [System.Serializable]
+#if UNITY_EDITOR
+	[System.Serializable]
     public class NodeEditorWindow : EditorWindow
     {
         #region Variables
@@ -45,8 +46,8 @@ namespace BTNE
         // 60-70 frames per second
         private void Update()
         {
-            if(m_currGraph != null)
-                m_currGraph.UpdateGraph();
+            //if(m_currGraph != null)
+            //    m_currGraph.UpdateGraph();
         }
 
         // Twice every update
@@ -90,4 +91,5 @@ namespace BTNE
             }
         }
     }
+#endif
 }

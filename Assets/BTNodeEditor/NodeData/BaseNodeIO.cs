@@ -6,7 +6,7 @@ using System;
 
 namespace BTNE
 {
-    [System.Serializable]
+	[System.Serializable]
     public class BaseNodeIO : ScriptableObject
     {
         public BaseNode m_holderNode;
@@ -20,7 +20,8 @@ namespace BTNE
 
         }
 
-        public virtual void UpdateGUI(BaseNode _node, NodeEditorWindow _curWindow)
+#if UNITY_EDITOR
+		public virtual void UpdateGUI(BaseNode _node, NodeEditorWindow _curWindow)
         {
             if (GUI.Button(m_IORect, new GUIContent("")))
             {
@@ -99,7 +100,7 @@ namespace BTNE
                     break;
             }
 
-            AssetDatabase.AddObjectToAsset(this, m_holderNode);
+            AssetDatabase.RemoveObjectFromAsset(this);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }
@@ -113,6 +114,7 @@ namespace BTNE
                 m_isOccupied = false;
                 m_connectedTo = null;
             }
-        }
-    }
+		}
+#endif
+	}
 }

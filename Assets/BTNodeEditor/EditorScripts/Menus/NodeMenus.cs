@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEditor;
 
 namespace BTNE
-{ 
-    public class NodeMenus 
+{
+#if UNITY_EDITOR
+	public class NodeMenus 
     {
         [MenuItem("BTNE/Launch BT Node Editor")]
         public static void InitNodeEditor()
@@ -16,4 +17,5 @@ namespace BTNE
             m_mainWindow.InitEditorWindow();
         }
     }
+#endif
 }

@@ -8,10 +8,7 @@ namespace BTNE
     public enum ActionType
     {
         WALK,
-        RUN,
-        EAT,
-        HUNT,
-        SEARCH,
+		INTERACT,
 
         COUNT
     }
@@ -20,6 +17,8 @@ namespace BTNE
     {
         #region Variables
         public ActionType m_actionType;
+		public GameObject m_object;
+		private bool m_actionCompleted = false;
         #endregion
 
         #region GettersAndSetters
@@ -43,13 +42,10 @@ namespace BTNE
                     m_nodeState = WALK();
                     break;
 
-                case ActionType.EAT:
-                    m_nodeState = NodeStates.FAILURE;
-                    break;
+                case ActionType.INTERACT:
+					m_nodeState = INTERACT();
+					break;
 
-                default:
-                    m_nodeState = WALK();
-                    break;
             }
 
             switch (m_nodeState)
@@ -74,14 +70,35 @@ namespace BTNE
             base.UpdateNode(_e, _viewRect);
         }
 
-        public override void UpdateNodeGUI(Event _e, Rect _viewRect, GUISkin _skin)
+#if UNITY_EDITOR
+		public override void UpdateNodeGUI(Event _e, Rect _viewRect, GUISkin _skin)
         {
             base.UpdateNodeGUI(_e, _viewRect, _skin);
         }
-
-        NodeStates WALK()
+#endif
+		NodeStates WALK()
         {
-            return NodeStates.SUCCESS;
-        }
-    }
+			if (m_actionCompleted)
+				return NodeStates.SUCCESS;
+
+			Vector3 p1 = m_player.transform.position;
+			Vector3 p2 = m_object.transform.position;
+
+			m_player.transform.position = Vector3.MoveTowards(p1, p2, 10.0f * Time.deltaTime);
+
+			if (p1 == p2)
+			{
+				m_actionCompleted = true;
+				return NodeStates.SUCCESS;
+			}
+			else
+				return NodeStates.FAILURE;
+		}
+
+		NodeStates INTERACT()
+		{
+
+			return NodeStates.SUCCESS;
+		}		
+	}
 }

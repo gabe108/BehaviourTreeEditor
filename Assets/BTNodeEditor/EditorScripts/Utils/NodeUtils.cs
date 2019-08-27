@@ -6,7 +6,8 @@ using System;
 
 namespace BTNE
 {
-    public static class NodeUtils 
+#if UNITY_EDITOR
+	public static class NodeUtils 
     {
         public static void CreateGraph(string _wantedName, string _path)
         {
@@ -126,4 +127,5 @@ namespace BTNE
             }
         }
     }
+#endif
 }

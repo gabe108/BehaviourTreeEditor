@@ -32,7 +32,8 @@ namespace BTNE
         #region Variables
         public List<NodeInput> m_inputs;
         public List<NodeOutput> m_outputs;
-        public string m_details;
+		public Player m_player;
+		public string m_details;
 
         [SerializeField] protected NodeStates m_nodeState;
         [SerializeField] protected string m_nodeName = "New Node";
@@ -87,10 +88,10 @@ namespace BTNE
 
         public virtual void UpdateNode(Event _e, Rect _viewRect)
         {
-            ProcessEvents(_e);
+            //ProcessEvents(_e);
         }
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         public virtual void UpdateNodeGUI(Event _e, Rect _viewRect, GUISkin _skin)
         {
             NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
@@ -133,7 +134,6 @@ namespace BTNE
             }
             GUI.DragWindow();
         }
-        #endif
 
         public void ProcessEvents(Event _e)
         {
@@ -196,9 +196,10 @@ namespace BTNE
                 default:
                     break;
             }
-        }
+		}
+#endif
 
-        public void mDebug()
+		public void mDebug()
         {
             Debug.Log(m_details);
         }

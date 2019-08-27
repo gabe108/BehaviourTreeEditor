@@ -17,7 +17,8 @@ namespace BTNE
         public List<BaseNode> m_nodes;
         public BaseNodeIO m_connectionFrom;
         public List<Connection> m_connections;
-        public GameObject m_actor;
+		public Player m_player;
+		public GameObject m_actor;
 
         [SerializeField] private BaseNode m_selectedNode;
         [SerializeField] private string m_graphName;
@@ -62,8 +63,13 @@ namespace BTNE
 
         public void UpdateGraph()
         {
-            if(m_nodes.Count > 0)
-                m_nodes[0].Evaluate();
+			if (m_nodes.Count > 0)
+			{
+				foreach(BaseNode node in m_nodes)
+					node.m_player = m_player;
+
+				m_nodes[0].Evaluate();
+			}
         }
 
         #if UNITY_EDITOR

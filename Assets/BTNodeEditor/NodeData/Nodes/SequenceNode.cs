@@ -42,8 +42,8 @@ namespace BTNE
                         continue;
                     case NodeStates.RUNNING:
                         anyChildRunning = true;
-                        continue;
-                    default:
+						return m_nodeState;
+					default:
                         m_nodeState = NodeStates.SUCCESS;
                         return m_nodeState;
                 }
@@ -58,9 +58,11 @@ namespace BTNE
             base.UpdateNode(_e, _viewRect);
         }
 
-        public override void UpdateNodeGUI(Event _e, Rect _viewRect, GUISkin _skin)
+#if UNITY_EDITOR
+		public override void UpdateNodeGUI(Event _e, Rect _viewRect, GUISkin _skin)
         {
             base.UpdateNodeGUI(_e, _viewRect, _skin);
         }
-    }
+#endif
+	}
 }

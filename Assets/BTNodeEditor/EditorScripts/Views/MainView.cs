@@ -6,7 +6,8 @@ using UnityEditor;
 
 namespace BTNE
 {
-    [System.Serializable]
+#if UNITY_EDITOR
+	[System.Serializable]
     public class MainView : ViewBase
     {
         public float zoomScale = 1.0f;
@@ -162,4 +163,5 @@ namespace BTNE
             }
         }
     }
+#endif
 }

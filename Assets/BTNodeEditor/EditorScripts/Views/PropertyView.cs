@@ -5,7 +5,8 @@ using UnityEditor;
 
 namespace BTNE
 {
-    [System.Serializable]
+#if UNITY_EDITOR
+	[System.Serializable]
     public class PropertyView : ViewBase
     {
         public PropertyView() : base("Property View")
@@ -61,16 +62,27 @@ namespace BTNE
                     GUILayout.Space(10);
                     GUILayout.EndHorizontal();
 
-                    GUILayout.BeginHorizontal();
-                    GUILayout.Space(10);
                     if (node.GetNodeType() == NodeType.ACTION_NODE)
-                    {
-                        ActionNode actionNode = ((ActionNode)node);
+					{
+						GUILayout.BeginHorizontal();
+						GUILayout.Space(10);
+
+						ActionNode actionNode = ((ActionNode)node);
                         actionNode.m_actionType = (ActionType)EditorGUILayout.EnumPopup(
                             new GUIContent("Action Type"), actionNode.m_actionType);
-                    }
-                    GUILayout.Space(10);
-                    GUILayout.EndHorizontal();
+
+						GUILayout.Space(10);
+						GUILayout.EndHorizontal();
+
+						GUILayout.BeginHorizontal();
+						GUILayout.Space(10);
+
+						actionNode.m_object = (GameObject)EditorGUILayout.ObjectField(
+							"Object", actionNode.m_object, typeof(GameObject), true);
+
+						GUILayout.Space(10);
+						GUILayout.EndHorizontal();
+					}
                 }
             }
             GUILayout.EndArea();
@@ -87,4 +99,5 @@ namespace BTNE
             }
         }
     }
+#endif
 }

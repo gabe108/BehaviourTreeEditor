@@ -5,7 +5,8 @@ using UnityEditor;
 
 namespace BTNE
 {
-    public class NodePopupWindow : EditorWindow
+#if UNITY_EDITOR
+	public class NodePopupWindow : EditorWindow
     {
         #region Variables
         private static NodePopupWindow m_currPopup;
@@ -92,4 +93,5 @@ namespace BTNE
             Repaint();
         }
     }
+#endif
 }

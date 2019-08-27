@@ -12,7 +12,8 @@ namespace BTNE
             m_type = ConnectionType.INPUT;
         }
 
-        public override void UpdateGUI(BaseNode _node, NodeEditorWindow _curWindow)
+#if UNITY_EDITOR
+		public override void UpdateGUI(BaseNode _node, NodeEditorWindow _curWindow)
         {
             if (_node.GetNodeType() != NodeType.ROOT_NODE)
             {
@@ -32,5 +33,6 @@ namespace BTNE
                 base.UpdateGUI(_node, _curWindow);
             }
         }
-    }
+#endif
+	}
 }
