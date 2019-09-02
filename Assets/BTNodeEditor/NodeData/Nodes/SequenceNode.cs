@@ -42,6 +42,7 @@ namespace BTNE
                         continue;
                     case NodeStates.RUNNING:
                         anyChildRunning = true;
+						m_nodeState = NodeStates.RUNNING;
 						return m_nodeState;
 					default:
                         m_nodeState = NodeStates.SUCCESS;

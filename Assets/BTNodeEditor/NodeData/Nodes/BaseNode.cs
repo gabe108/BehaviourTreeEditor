@@ -34,10 +34,11 @@ namespace BTNE
         public List<NodeOutput> m_outputs;
 		public Player m_player;
 		public string m_details;
+		public NodeGraph m_parentGraph;
+		public bool m_actionCompleted = false;
 
-        [SerializeField] protected NodeStates m_nodeState;
+		[SerializeField] protected NodeStates m_nodeState;
         [SerializeField] protected string m_nodeName = "New Node";
-        [SerializeField] protected NodeGraph m_parentGraph;
         [SerializeField] protected GUISkin m_nodeSkin;
         [SerializeField] protected Rect m_nodeRect = new Rect(0, 0, 0, 0);
         [SerializeField] protected NodeType m_nodeType;

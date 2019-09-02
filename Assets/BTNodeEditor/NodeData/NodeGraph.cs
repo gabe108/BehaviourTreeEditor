@@ -65,8 +65,11 @@ namespace BTNE
         {
 			if (m_nodes.Count > 0)
 			{
-				foreach(BaseNode node in m_nodes)
+				foreach (BaseNode node in m_nodes)
+				{
 					node.m_player = m_player;
+					node.m_parentGraph = this;
+				}
 
 				m_nodes[0].Evaluate();
 			}

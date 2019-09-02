@@ -1,30 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace BTNE
 {
     public enum ActionType
     {
         WALK,
-		INTERACT,
+		PICKUPKEY,
+		OPENDOOR,
+		RESETVARIABLES,
 
-        COUNT
-    }
+        COUNT,
+	}
 
     public class ActionNode : BaseNode
     {
         #region Variables
         public ActionType m_actionType;
 		public GameObject m_object;
-		private bool m_actionCompleted = false;
-        #endregion
+		#endregion
 
-        #region GettersAndSetters
-        #endregion
+		#region GettersAndSetters
+		#endregion
 
-        public override void InitNode()
+		private void OnEnable()
+		{
+			m_actionCompleted = false;
+		}
+
+		public override void InitNode()
         {
             m_nodeName = "Action Node";
             m_nodeType = NodeType.ACTION_NODE;
@@ -39,14 +45,22 @@ namespace BTNE
             switch (m_actionType)
             {
                 case ActionType.WALK:
-                    m_nodeState = WALK();
+                    m_nodeState = Walk();
                     break;
 
-                case ActionType.INTERACT:
-					m_nodeState = INTERACT();
+                case ActionType.PICKUPKEY:
+					m_nodeState = PickUpKey();
 					break;
 
-            }
+				case ActionType.OPENDOOR:
+					m_nodeState = OpenDoor();
+					break;
+
+				case ActionType.RESETVARIABLES:
+					m_nodeState = ResetVariables();
+					break;
+
+			}
 
             switch (m_nodeState)
             {
@@ -76,8 +90,9 @@ namespace BTNE
             base.UpdateNodeGUI(_e, _viewRect, _skin);
         }
 #endif
-		NodeStates WALK()
+		NodeStates Walk()
         {
+			//Debug.Break();
 			if (m_actionCompleted)
 				return NodeStates.SUCCESS;
 
@@ -92,13 +107,41 @@ namespace BTNE
 				return NodeStates.SUCCESS;
 			}
 			else
-				return NodeStates.FAILURE;
+				return NodeStates.RUNNING;
 		}
 
-		NodeStates INTERACT()
+		NodeStates PickUpKey()
 		{
+			if (m_actionCompleted)
+				return NodeStates.SUCCESS;
 
+			m_player.m_hasKey = true;
+			m_actionCompleted = true;
 			return NodeStates.SUCCESS;
 		}		
+
+		NodeStates OpenDoor()
+		{
+			if (m_actionCompleted)
+				return NodeStates.SUCCESS;
+
+			if (m_player.m_hasKey)
+			{
+				m_actionCompleted = true;
+				return NodeStates.SUCCESS;
+			}
+			else
+			{
+				return NodeStates.FAILURE;
+			}
+		}
+
+		NodeStates ResetVariables()
+		{
+			foreach (BaseNode node in m_parentGraph.m_nodes)
+				node.m_actionCompleted = false;
+
+			return NodeStates.SUCCESS;
+		}
 	}
 }
