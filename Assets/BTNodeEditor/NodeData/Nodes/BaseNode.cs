@@ -37,6 +37,7 @@ namespace BTNE
 		public string m_details;
 		public NodeGraph m_parentGraph;
 		public bool m_actionCompleted = false;
+		public NodeEditorWindow curWindow;
 
 		[SerializeField] protected NodeStates m_nodeState;
         [SerializeField] protected string m_nodeName = "New Node";
@@ -69,7 +70,7 @@ namespace BTNE
 
         public virtual void InitNode()
         {
-            NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
+            curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
 
             m_inputs = new List<NodeInput>();
             index = curWindow.GetCurrentGraph().m_nodes.Count;
@@ -98,7 +99,6 @@ namespace BTNE
 #if UNITY_EDITOR
         public virtual void UpdateNodeGUI(Event _e, Rect _viewRect, GUISkin _skin)
         {
-            NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
             if (curWindow != null)
             {
                 int index = curWindow.GetCurrentGraph().m_nodes.IndexOf(this);
@@ -124,10 +124,64 @@ namespace BTNE
                 if(output != null)
                     output.UpdateGUI(this, curWindow);
             }
+
+			if (m_parentGraph.isDragging)
+			{
+				UpdateNodeIndex(this);
+				if (m_inputs[0] != null)
+					m_inputs[0].m_connectedTo.m_holderNode.UpdateNodeIndex(m_inputs[0].m_connectedTo.m_holderNode);
+
+				m_parentGraph.isDragging = false;
+			}
+
+
             EditorUtility.SetDirty(this);
         }
 
-        public void DoMyWindow(int id)
+		public void UpdateNodeIndex(BaseNode _node)
+		{
+			List<BaseNode> nodes = new List<BaseNode>();
+			if (_node.m_outputs.Count > 0)
+			{
+				foreach (NodeOutput output in _node.m_outputs)
+				{
+					if (output == null)
+						continue;
+
+					if (output.m_isOccupied)
+					{
+						BaseNode node = output.m_connectedTo.m_holderNode;
+
+						nodes.Add(output.m_connectedTo.m_holderNode);
+					}
+				}
+			}
+
+			for(int i = 0; i < nodes.Count; i++)
+			{
+				Rect thisRect = nodes[i].m_nodeRect;
+				if (nodes.Count > i + 1)
+				{
+					Rect nextRect = nodes[i + 1].m_nodeRect;
+					if (thisRect.x + thisRect.width > nextRect.x + nextRect.width)
+					{
+						BaseNode thisNode = nodes[i];
+						BaseNode nextNode = nodes[i + 1];
+
+						m_outputs[i].m_connectedTo = nextNode.m_inputs[0];
+						m_outputs[i].m_connectedTo.m_holderNode = nextNode;
+
+						m_outputs[i + 1].m_connectedTo = thisNode.m_inputs[0];
+						m_outputs[i + 1].m_connectedTo.m_holderNode = thisNode;
+
+						AssetDatabase.SaveAssets();
+						AssetDatabase.Refresh();
+					}
+				}
+			}
+		}
+
+		public void DoMyWindow(int id)
         {
             //m_parentGraph.SetSelectedNode(this);
             Event e = Event.current;
@@ -149,40 +203,51 @@ namespace BTNE
 
         private void ProcessContextMenu(Event _e)
         {
-            if (_e.button == 0)
+            if (_e.type == EventType.MouseDrag)
             {
-                List<BaseNode> nodes = new List<BaseNode>();
-                nodes.Add(this);
-                if (m_outputs.Count > 0)
-                {
-                    foreach (NodeOutput output in m_outputs)
-                    {
-                        if (output == null)
-                            continue;
+				if (_e.button == 0)
+				{
+					m_parentGraph.SetSelectedNode(this);
+					List<BaseNode> nodes = new List<BaseNode>();
+					nodes.Add(this);
+					if (m_outputs.Count > 0)
+					{
+						foreach (NodeOutput output in m_outputs)
+						{
+							if (output == null)
+								continue;
 
-                        BaseNode node = output.m_connectedTo.m_holderNode;
+							if (output.m_isOccupied)
+							{
+								BaseNode node = output.m_connectedTo.m_holderNode;
 
-                        foreach(NodeOutput childOutput in node.m_outputs)
-                        {
-                            if (output == null)
-                                continue;
+								if (node != null && node.m_outputs.Count > 0 && node.m_outputs[0] != null)
+								{
+									foreach (NodeOutput childOutput in node.m_outputs)
+									{
+										if (output == null)
+											continue;
 
-                            nodes.Add(childOutput.m_connectedTo.m_holderNode);
-                        }
+										nodes.Add(childOutput.m_connectedTo.m_holderNode);
+									}
+								}
+								nodes.Add(output.m_connectedTo.m_holderNode);
+							}
+						}
+					}
 
-                        nodes.Add(output.m_connectedTo.m_holderNode);
-                    }
-                }
+					Vector2 delta = _e.delta;
 
-                Vector2 delta = _e.delta;
+					foreach (BaseNode node in nodes)
+					{
+						Rect temp = node.GetNodeRect();
+						temp.x += delta.x;
+						temp.y += delta.y;
+						node.SetNodeRect(temp);
+					}
 
-                foreach (BaseNode node in nodes)
-                {
-                    Rect temp = node.GetNodeRect();
-                    temp.x += delta.x;
-                    temp.y += delta.y;
-                    node.SetNodeRect(temp);
-                }
+					m_parentGraph.isDragging = true;
+				}
             }
 
             if (_e.type == EventType.Layout && _e.button == 1)

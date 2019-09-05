@@ -25,10 +25,12 @@ namespace BTNE
         [SerializeField] private bool m_isMakingConnection;
         [SerializeField] private Vector3 m_connectionStart;
         [SerializeField] private ConnectionType m_connectorType;
-        #endregion
 
-        #region GettersAndSetters
-        public string GetGraphName() { return m_graphName; }
+		public bool isDragging { get; internal set; }
+		#endregion
+
+		#region GettersAndSetters
+		public string GetGraphName() { return m_graphName; }
         public BaseNode GetSelectedNode() { return m_selectedNode; }
         public bool GetIsMakingConnection() { return m_isMakingConnection; }
         public Vector3 GetConnectionStart() { return m_connectionStart; }

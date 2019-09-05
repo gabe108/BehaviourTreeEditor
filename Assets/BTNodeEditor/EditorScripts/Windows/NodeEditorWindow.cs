@@ -46,9 +46,10 @@ namespace BTNE
         // 60-70 frames per second
         private void Update()
         {
-            //if(m_currGraph != null)
-            //    m_currGraph.UpdateGraph();
-        }
+			//if(m_currGraph != null)
+			//    m_currGraph.UpdateGraph();
+
+		}
 
         // Twice every update
         private void OnGUI()

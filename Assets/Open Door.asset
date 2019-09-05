@@ -25,7 +25,7 @@ MonoBehaviour:
   m_connections: []
   m_player: {fileID: 0}
   m_actor: {fileID: 0}
-  m_selectedNode: {fileID: 114515039992758814}
+  m_selectedNode: {fileID: 114658985582623620}
   m_graphName: Open Door
   m_isMakingConnection: 0
   m_connectionStart: {x: 285.87576, y: 541.1019, z: 0}
@@ -42,6 +42,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114191977938959836}
   m_outputs:
@@ -50,6 +51,7 @@ MonoBehaviour:
   m_details: Walk To Door Again
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -78,8 +80,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 354.52744
-    y: 595.589
+    x: 891.2869
+    y: 570.75366
     width: 13
     height: 13
   m_connectedTo: {fileID: 114190642168386650}
@@ -122,8 +124,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 643.8731
-    y: 537.6177
+    x: 316.57043
+    y: 512.78235
     width: 10
     height: 10
   m_connectedTo: {fileID: 114767097739462668}
@@ -140,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9a8c27e007f4345956b44c7e825c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114076442237067100}
   m_outputs:
@@ -149,6 +152,7 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
@@ -175,8 +179,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 269.93826
-    y: 551.7269
+    x: 806.69775
+    y: 526.89136
     width: 10
     height: 10
   m_connectedTo: {fileID: 114474437782078402}
@@ -193,6 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114613478650110238}
   m_outputs:
@@ -201,13 +206,14 @@ MonoBehaviour:
   m_details: Picking Up Key
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 629.23486
-    y: 616.041
+    x: 301.9322
+    y: 591.20575
     width: 150
     height: 150
   m_nodeType: 4
@@ -225,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9a8c27e007f4345956b44c7e825c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 0}
   m_outputs:
@@ -234,6 +241,7 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
@@ -260,8 +268,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 284.93826
-    y: 551.7269
+    x: 821.69775
+    y: 526.89136
     width: 10
     height: 10
   m_connectedTo: {fileID: 114037036785798928}
@@ -300,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114482256547277378}
   m_outputs:
@@ -308,6 +317,7 @@ MonoBehaviour:
   m_details: Open Door Again
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -336,8 +346,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 275.93826
-    y: 378.72693
+    x: 812.69775
+    y: 353.89136
     width: 13
     height: 13
   m_connectedTo: {fileID: 114391022173079318}
@@ -354,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9a8c27e007f4345956b44c7e825c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114759771086824246}
   m_outputs:
@@ -362,6 +373,7 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
@@ -388,8 +400,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 657.3731
-    y: 364.6177
+    x: 330.07043
+    y: 339.78232
     width: 13
     height: 13
   m_connectedTo: {fileID: 114389035674505692}
@@ -406,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9a8c27e007f4345956b44c7e825c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114709907671586564}
   m_outputs:
@@ -414,6 +427,7 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
@@ -436,6 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114694446052698776}
   m_outputs:
@@ -444,6 +459,7 @@ MonoBehaviour:
   m_details: Ended
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -472,8 +488,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 533.6628
-    y: 240.08783
+    x: 581.36005
+    y: 212.12733
     width: 10
     height: 10
   m_connectedTo: {fileID: 114360611066356588}
@@ -494,8 +510,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 518.6628
-    y: 240.08783
+    x: 566.36005
+    y: 212.12733
     width: 10
     height: 10
   m_connectedTo: {fileID: 114206664306675590}
@@ -512,6 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114767097739462668}
   m_outputs:
@@ -520,13 +537,14 @@ MonoBehaviour:
   m_details: Walk To Key
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 464.96277
-    y: 613.5615
+    x: 137.6601
+    y: 588.72626
     width: 150
     height: 150
   m_nodeType: 4
@@ -548,8 +566,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 658.8731
-    y: 537.6177
+    x: 331.57043
+    y: 512.78235
     width: 10
     height: 10
   m_connectedTo: {fileID: 114613478650110238}
@@ -566,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 0}
   m_outputs:
@@ -574,6 +593,7 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -602,8 +622,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 193.22519
-    y: 598.79706
+    x: 729.9847
+    y: 573.9618
     width: 13
     height: 13
   m_connectedTo: {fileID: 114179990830678002}
@@ -642,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9a8c27e007f4345956b44c7e825c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114206664306675590}
   m_outputs:
@@ -651,13 +672,14 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 207.43826
-    y: 396.72693
+    x: 744.19775
+    y: 371.89136
     width: 150
     height: 150
   m_nodeType: 3
@@ -673,6 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114635201953602860}
   m_outputs:
@@ -681,6 +704,7 @@ MonoBehaviour:
   m_details: Walk To Key
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -705,6 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 0}
   m_outputs:
@@ -713,6 +738,7 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -763,8 +789,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 697.73486
-    y: 598.041
+    x: 370.4322
+    y: 573.20575
     width: 13
     height: 13
   m_connectedTo: {fileID: 114427758111814532}
@@ -781,6 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bea3fb142479ce49a61a0206983680c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 0}
   m_outputs:
@@ -790,13 +817,14 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Selector
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 456.16278
-    y: 85.08783
+    x: 503.86005
+    y: 57.127335
     width: 150
     height: 150
   m_nodeType: 2
@@ -838,8 +866,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 673.8731
-    y: 537.6177
+    x: 346.57043
+    y: 512.78235
     width: 10
     height: 10
   m_connectedTo: {fileID: 114950724218781846}
@@ -856,6 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9a8c27e007f4345956b44c7e825c21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114360611066356588}
   m_outputs:
@@ -866,13 +895,14 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 588.8731
-    y: 382.6177
+    x: 261.57043
+    y: 357.78232
     width: 150
     height: 150
   m_nodeType: 3
@@ -910,6 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114950724218781846}
   m_outputs:
@@ -918,13 +949,14 @@ MonoBehaviour:
   m_details: Reseting Variables
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 795.15796
-    y: 613.52637
+    x: 467.85547
+    y: 588.6911
     width: 150
     height: 150
   m_nodeType: 4
@@ -964,6 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 0}
   m_outputs:
@@ -972,6 +1005,7 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -1044,8 +1078,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 533.46277
-    y: 595.5615
+    x: 206.1601
+    y: 570.72626
     width: 13
     height: 13
   m_connectedTo: {fileID: 114100657824141224}
@@ -1062,6 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114607605699361166}
   m_outputs:
@@ -1070,6 +1105,7 @@ MonoBehaviour:
   m_details: Pick Up Key
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -1094,6 +1130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114037036785798928}
   m_outputs:
@@ -1102,13 +1139,14 @@ MonoBehaviour:
   m_details: OpenDoor
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 286.02744
-    y: 613.589
+    x: 822.7869
+    y: 588.75366
     width: 150
     height: 150
   m_nodeType: 4
@@ -1152,8 +1190,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 863.65796
-    y: 595.52637
+    x: 536.35547
+    y: 570.6911
     width: 13
     height: 13
   m_connectedTo: {fileID: 114651418251726678}
@@ -1170,6 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a773bbc8dfa94be4fb9fe205a1f6693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  index: 0
   m_inputs:
   - {fileID: 114474437782078402}
   m_outputs:
@@ -1178,13 +1217,14 @@ MonoBehaviour:
   m_details: Walk
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
+  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 124.72518
-    y: 616.79706
+    x: 661.4847
+    y: 591.9618
     width: 150
     height: 150
   m_nodeType: 4
