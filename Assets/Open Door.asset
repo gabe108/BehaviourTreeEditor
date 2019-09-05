@@ -25,10 +25,10 @@ MonoBehaviour:
   m_connections: []
   m_player: {fileID: 0}
   m_actor: {fileID: 0}
-  m_selectedNode: {fileID: 114658985582623620}
+  m_selectedNode: {fileID: 114515039992758814}
   m_graphName: Open Door
   m_isMakingConnection: 0
-  m_connectionStart: {x: 677.7612, y: 445.7887, z: 0}
+  m_connectionStart: {x: 285.87576, y: 541.1019, z: 0}
   m_connectorType: 0
 --- !u!114 &114028377250920072
 MonoBehaviour:
@@ -78,8 +78,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 382.52744
-    y: 461.589
+    x: 354.52744
+    y: 595.589
     width: 13
     height: 13
   m_connectedTo: {fileID: 114190642168386650}
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 712.4981
-    y: 422.36768
+    x: 643.8731
+    y: 537.6177
     width: 10
     height: 10
   m_connectedTo: {fileID: 114767097739462668}
@@ -159,6 +159,28 @@ MonoBehaviour:
     width: 150
     height: 150
   m_nodeType: 3
+--- !u!114 &114179990830678002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b92a088f1fa843419f2732f8818d7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_holderNode: {fileID: 114515039992758814}
+  m_isOccupied: 1
+  m_IORect:
+    serializedVersion: 2
+    x: 269.93826
+    y: 551.7269
+    width: 10
+    height: 10
+  m_connectedTo: {fileID: 114474437782078402}
+  m_type: 0
 --- !u!114 &114180303907614206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,8 +206,8 @@ MonoBehaviour:
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 657.23486
-    y: 482.04105
+    x: 629.23486
+    y: 616.041
     width: 150
     height: 150
   m_nodeType: 4
@@ -238,8 +260,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 312.9384
-    y: 441.16437
+    x: 284.93826
+    y: 551.7269
     width: 10
     height: 10
   m_connectedTo: {fileID: 114037036785798928}
@@ -314,8 +336,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 303.9384
-    y: 268.16437
+    x: 275.93826
+    y: 378.72693
     width: 13
     height: 13
   m_connectedTo: {fileID: 114391022173079318}
@@ -366,8 +388,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 725.9981
-    y: 249.36768
+    x: 657.3731
+    y: 364.6177
     width: 13
     height: 13
   m_connectedTo: {fileID: 114389035674505692}
@@ -450,8 +472,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 656.9752
-    y: 199.83778
+    x: 533.6628
+    y: 240.08783
     width: 10
     height: 10
   m_connectedTo: {fileID: 114360611066356588}
@@ -472,8 +494,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 641.9752
-    y: 199.83778
+    x: 518.6628
+    y: 240.08783
     width: 10
     height: 10
   m_connectedTo: {fileID: 114206664306675590}
@@ -503,8 +525,8 @@ MonoBehaviour:
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 492.96277
-    y: 479.56152
+    x: 464.96277
+    y: 613.5615
     width: 150
     height: 150
   m_nodeType: 4
@@ -526,8 +548,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 727.4981
-    y: 422.36768
+    x: 658.8731
+    y: 537.6177
     width: 10
     height: 10
   m_connectedTo: {fileID: 114613478650110238}
@@ -580,11 +602,11 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 222.78769
-    y: 460.10956
+    x: 193.22519
+    y: 598.79706
     width: 13
     height: 13
-  m_connectedTo: {fileID: 114879217651565994}
+  m_connectedTo: {fileID: 114179990830678002}
   m_type: 1
 --- !u!114 &114482256547277378
 MonoBehaviour:
@@ -623,7 +645,7 @@ MonoBehaviour:
   m_inputs:
   - {fileID: 114206664306675590}
   m_outputs:
-  - {fileID: 114879217651565994}
+  - {fileID: 114179990830678002}
   - {fileID: 114190642168386650}
   m_player: {fileID: 0}
   m_details: 
@@ -634,8 +656,8 @@ MonoBehaviour:
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 235.43839
-    y: 286.16437
+    x: 207.43826
+    y: 396.72693
     width: 150
     height: 150
   m_nodeType: 3
@@ -741,8 +763,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 725.73486
-    y: 464.04105
+    x: 697.73486
+    y: 598.041
     width: 13
     height: 13
   m_connectedTo: {fileID: 114427758111814532}
@@ -773,8 +795,8 @@ MonoBehaviour:
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 579.4752
-    y: 44.83778
+    x: 456.16278
+    y: 85.08783
     width: 150
     height: 150
   m_nodeType: 2
@@ -816,8 +838,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 742.4981
-    y: 422.36768
+    x: 673.8731
+    y: 537.6177
     width: 10
     height: 10
   m_connectedTo: {fileID: 114950724218781846}
@@ -849,8 +871,8 @@ MonoBehaviour:
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 657.4981
-    y: 267.36768
+    x: 588.8731
+    y: 382.6177
     width: 150
     height: 150
   m_nodeType: 3
@@ -901,8 +923,8 @@ MonoBehaviour:
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 823.15796
-    y: 479.52634
+    x: 795.15796
+    y: 613.52637
     width: 150
     height: 150
   m_nodeType: 4
@@ -1022,8 +1044,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 561.46277
-    y: 461.56152
+    x: 533.46277
+    y: 595.5615
     width: 13
     height: 13
   m_connectedTo: {fileID: 114100657824141224}
@@ -1060,28 +1082,6 @@ MonoBehaviour:
   m_nodeType: 4
   m_actionType: 1
   m_object: {fileID: 0}
---- !u!114 &114879217651565994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b92a088f1fa843419f2732f8818d7a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_holderNode: {fileID: 114515039992758814}
-  m_isOccupied: 1
-  m_IORect:
-    serializedVersion: 2
-    x: 297.9384
-    y: 441.16437
-    width: 10
-    height: 10
-  m_connectedTo: {fileID: 114474437782078402}
-  m_type: 0
 --- !u!114 &114922355716760362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,14 +1101,14 @@ MonoBehaviour:
   m_player: {fileID: 0}
   m_details: OpenDoor
   m_parentGraph: {fileID: 11400000}
-  m_actionCompleted: 1
+  m_actionCompleted: 0
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 314.02744
-    y: 479.589
+    x: 286.02744
+    y: 613.589
     width: 150
     height: 150
   m_nodeType: 4
@@ -1152,8 +1152,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 891.65796
-    y: 461.52634
+    x: 863.65796
+    y: 595.52637
     width: 13
     height: 13
   m_connectedTo: {fileID: 114651418251726678}
@@ -1177,14 +1177,14 @@ MonoBehaviour:
   m_player: {fileID: 0}
   m_details: Walk
   m_parentGraph: {fileID: 11400000}
-  m_actionCompleted: 1
+  m_actionCompleted: 0
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 154.28769
-    y: 478.10956
+    x: 124.72518
+    y: 616.79706
     width: 150
     height: 150
   m_nodeType: 4

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 namespace BTNE
@@ -19,7 +20,7 @@ namespace BTNE
     {
         #region Variables
         public ActionType m_actionType;
-		public GameObject m_object;
+		[SerializeField] public GameObject m_object;
 		#endregion
 
 		#region GettersAndSetters
@@ -27,7 +28,7 @@ namespace BTNE
 
 		private void OnEnable()
 		{
-			m_actionCompleted = false;
+            m_actionCompleted = false;
 		}
 
 		public override void InitNode()
@@ -35,7 +36,6 @@ namespace BTNE
             m_nodeName = "Action Node";
             m_nodeType = NodeType.ACTION_NODE;
             m_nodeRect = new Rect(50f, 50f, 150f, 150f);
-            
             base.InitNode();
         }
 
@@ -92,10 +92,10 @@ namespace BTNE
 #endif
 		NodeStates Walk()
         {
-			//Debug.Break();
 			if (m_actionCompleted)
 				return NodeStates.SUCCESS;
 
+            Debug.Log(m_object);
 			Vector3 p1 = m_player.transform.position;
 			Vector3 p2 = m_object.transform.position;
 

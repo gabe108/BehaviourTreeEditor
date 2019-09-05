@@ -30,6 +30,7 @@ namespace BTNE
     public abstract class BaseNode : ScriptableObject
     {
         #region Variables
+        public int index;
         public List<NodeInput> m_inputs;
         public List<NodeOutput> m_outputs;
 		public Player m_player;
@@ -68,8 +69,10 @@ namespace BTNE
 
         public virtual void InitNode()
         {
-            m_inputs = new List<NodeInput>();
+            NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
 
+            m_inputs = new List<NodeInput>();
+            index = curWindow.GetCurrentGraph().m_nodes.Count;
             if (m_nodeType != NodeType.ROOT_NODE)
             {
                 NodeInput input = new NodeInput();
@@ -124,7 +127,7 @@ namespace BTNE
             EditorUtility.SetDirty(this);
         }
 
-        private void DoMyWindow(int id)
+        public void DoMyWindow(int id)
         {
             //m_parentGraph.SetSelectedNode(this);
             Event e = Event.current;
@@ -133,35 +136,72 @@ namespace BTNE
                 if (m_parentGraph != null)
                     m_parentGraph.SetSelectedNode(this);
             }
-            GUI.DragWindow();
+            //GUI.DragWindow();
         }
 
         public void ProcessEvents(Event _e)
         {
             if (m_nodeRect.Contains(_e.mousePosition))
             {
-                NodeGraph graph = (EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow).GetCurrentGraph();
-                if (_e.type == EventType.Layout && _e.button == 1)
-                {                    
-                    if (graph != null)
-                        graph.SetIsMakingConnection(false);
-
-                    ProcessContextMenu(_e);
-                }
+                ProcessContextMenu(_e);
             }
         }
 
         private void ProcessContextMenu(Event _e)
         {
-            GenericMenu menu = new GenericMenu();
+            if (_e.button == 0)
+            {
+                List<BaseNode> nodes = new List<BaseNode>();
+                nodes.Add(this);
+                if (m_outputs.Count > 0)
+                {
+                    foreach (NodeOutput output in m_outputs)
+                    {
+                        if (output == null)
+                            continue;
 
-            menu.AddItem(new GUIContent("Delete Node"), false, CallbackOnContextMenu, "0");
-            menu.AddItem(new GUIContent("Mark this as Root Node"), false, CallbackOnContextMenu, "1");
+                        BaseNode node = output.m_connectedTo.m_holderNode;
 
-            menu.AddSeparator("");
-            menu.AddItem(new GUIContent("Add Output"), false, CallbackOnContextMenu, "2");
+                        foreach(NodeOutput childOutput in node.m_outputs)
+                        {
+                            if (output == null)
+                                continue;
 
-            menu.ShowAsContext();
+                            nodes.Add(childOutput.m_connectedTo.m_holderNode);
+                        }
+
+                        nodes.Add(output.m_connectedTo.m_holderNode);
+                    }
+                }
+
+                Vector2 delta = _e.delta;
+
+                foreach (BaseNode node in nodes)
+                {
+                    Rect temp = node.GetNodeRect();
+                    temp.x += delta.x;
+                    temp.y += delta.y;
+                    node.SetNodeRect(temp);
+                }
+            }
+
+            if (_e.type == EventType.Layout && _e.button == 1)
+            {
+                NodeGraph graph = (EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow).GetCurrentGraph();
+
+                if (graph != null)
+                    graph.SetIsMakingConnection(false);
+
+                GenericMenu menu = new GenericMenu();
+
+                menu.AddItem(new GUIContent("Delete Node"), false, CallbackOnContextMenu, "0");
+                menu.AddItem(new GUIContent("Mark this as Root Node"), false, CallbackOnContextMenu, "1");
+
+                menu.AddSeparator("");
+                menu.AddItem(new GUIContent("Add Output"), false, CallbackOnContextMenu, "2");
+
+                menu.ShowAsContext();
+            }
         }
 
         private void CallbackOnContextMenu(object obj)
