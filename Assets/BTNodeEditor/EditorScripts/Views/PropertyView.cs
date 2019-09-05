@@ -64,10 +64,11 @@ namespace BTNE
 
                     if (node.GetNodeType() == NodeType.ACTION_NODE)
 					{
+						ActionNode actionNode = ((ActionNode)node);
+
 						GUILayout.BeginHorizontal();
 						GUILayout.Space(10);
 
-						ActionNode actionNode = ((ActionNode)node);
                         actionNode.m_actionType = (ActionType)EditorGUILayout.EnumPopup(
                             new GUIContent("Action Type"), actionNode.m_actionType);
 
@@ -77,8 +78,8 @@ namespace BTNE
 						GUILayout.BeginHorizontal();
 						GUILayout.Space(10);
 
-						actionNode.m_object = (GameObject)EditorGUILayout.ObjectField(
-							"Object", actionNode.m_object, typeof(GameObject), true);
+						actionNode.m_objectToMoveTo = (ObjectType)EditorGUILayout.EnumPopup(
+							new GUIContent("Object To Move To"), actionNode.m_objectToMoveTo);
 
 						GUILayout.Space(10);
 						GUILayout.EndHorizontal();

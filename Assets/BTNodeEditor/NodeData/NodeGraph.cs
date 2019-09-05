@@ -52,7 +52,8 @@ namespace BTNE
                 m_connections = new List<Connection>();
         }
 
-        public void InitGraph()
+#if UNITY_EDITOR
+		public void InitGraph()
         {
             if(m_nodes.Count > 0)
             {
@@ -62,6 +63,7 @@ namespace BTNE
                 }
             }
         }
+#endif
 
         public void UpdateGraph()
         {

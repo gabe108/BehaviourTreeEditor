@@ -16,11 +16,17 @@ namespace BTNE
         COUNT,
 	}
 
+	public enum ObjectType
+	{
+		DOOR,
+		KEY
+	}
     public class ActionNode : BaseNode
     {
         #region Variables
         public ActionType m_actionType;
-		[SerializeField] public GameObject m_object;
+		//[SerializeField] public GameObject m_object;
+		public ObjectType m_objectToMoveTo;
 		#endregion
 
 		#region GettersAndSetters
@@ -31,6 +37,7 @@ namespace BTNE
             m_actionCompleted = false;
 		}
 
+#if UNITY_EDITOR
 		public override void InitNode()
         {
             m_nodeName = "Action Node";
@@ -38,6 +45,7 @@ namespace BTNE
             m_nodeRect = new Rect(50f, 50f, 150f, 150f);
             base.InitNode();
         }
+#endif
 
         public override NodeStates Evaluate()
         {
@@ -95,9 +103,20 @@ namespace BTNE
 			if (m_actionCompleted)
 				return NodeStates.SUCCESS;
 
-            Debug.Log(m_object);
+			GameObject objectToMoveTo = null;
+			switch (m_objectToMoveTo)
+			{
+				case ObjectType.DOOR:
+					objectToMoveTo = m_player.m_doorMovePoint;
+					break;
+				case ObjectType.KEY:
+					objectToMoveTo = m_player.m_key;
+					break;
+				default:
+					break;
+			}
 			Vector3 p1 = m_player.transform.position;
-			Vector3 p2 = m_object.transform.position;
+			Vector3 p2 = objectToMoveTo.transform.position;
 
 			m_player.transform.position = Vector3.MoveTowards(p1, p2, 10.0f * Time.deltaTime);
 

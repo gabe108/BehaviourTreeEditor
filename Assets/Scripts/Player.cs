@@ -6,6 +6,8 @@ using BTNE;
 public class Player : MonoBehaviour
 {
     [SerializeField] private NodeGraph m_behaviourTree;
+    public GameObject m_doorMovePoint;
+    public GameObject m_key;
 	[HideInInspector] public bool m_hasKey = false;
 
     // Start is called before the first frame update

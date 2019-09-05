@@ -21,7 +21,7 @@ MonoBehaviour:
   m_connections: []
   m_player: {fileID: 0}
   m_actor: {fileID: 0}
-  m_selectedNode: {fileID: 114951646480465038}
+  m_selectedNode: {fileID: 114651597643697394}
   m_graphName: adsasda
   m_isMakingConnection: 0
   m_connectionStart: {x: 675.2499, y: 538.6874, z: 0}
@@ -163,8 +163,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 707.7237
-    y: 683.194
+    x: 744.45825
+    y: 634.21466
     width: 13
     height: 13
   m_connectedTo: {fileID: 114385650811277322}
@@ -472,15 +472,15 @@ MonoBehaviour:
   m_player: {fileID: 0}
   m_details: Pick up
   m_parentGraph: {fileID: 11400000}
-  m_actionCompleted: 0
+  m_actionCompleted: 1
   curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 900.4842
-    y: 695.619
+    x: 833.1372
+    y: 652.76196
     width: 150
     height: 150
   m_nodeType: 4
@@ -535,8 +535,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 968.9842
-    y: 677.619
+    x: 901.6372
+    y: 634.76196
     width: 13
     height: 13
   m_connectedTo: {fileID: 114116968307587672}
@@ -681,15 +681,15 @@ MonoBehaviour:
   m_player: {fileID: 0}
   m_details: Walk
   m_parentGraph: {fileID: 11400000}
-  m_actionCompleted: 0
+  m_actionCompleted: 1
   curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 639.2237
-    y: 701.194
+    x: 675.95825
+    y: 652.21466
     width: 150
     height: 150
   m_nodeType: 4

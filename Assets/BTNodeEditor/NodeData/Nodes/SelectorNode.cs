@@ -6,22 +6,23 @@ namespace BTNE
 {
     public class SelectorNode : BaseNode
     {
-        #region Variables
+		#region Variables
 
-        #endregion
+		#endregion
 
-        #region GettersAndSetters
-        #endregion
+		#region GettersAndSetters
+		#endregion
 
-        public override void InitNode()
+#if UNITY_EDITOR
+		public override void InitNode()
         {
             m_nodeName = "Selector";
             m_nodeType = NodeType.SELECTOR_NODE;
             m_nodeRect = new Rect(50f, 50f, 150f, 150f);
             base.InitNode();
         }
-
-        public override NodeStates Evaluate()
+#endif
+		public override NodeStates Evaluate()
         {
             mDebug();
 

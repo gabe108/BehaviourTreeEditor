@@ -51,7 +51,6 @@ MonoBehaviour:
   m_details: Walk To Door Again
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -63,7 +62,7 @@ MonoBehaviour:
     height: 150
   m_nodeType: 4
   m_actionType: 0
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114037036785798928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,8 +79,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 891.2869
-    y: 570.75366
+    x: 621.89935
+    y: 629.9376
     width: 13
     height: 13
   m_connectedTo: {fileID: 114190642168386650}
@@ -124,8 +123,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 316.57043
-    y: 512.78235
+    x: 910.4475
+    y: 574.00684
     width: 10
     height: 10
   m_connectedTo: {fileID: 114767097739462668}
@@ -152,7 +151,6 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
@@ -179,8 +177,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 806.69775
-    y: 526.89136
+    x: 537.31024
+    y: 586.07513
     width: 10
     height: 10
   m_connectedTo: {fileID: 114474437782078402}
@@ -206,19 +204,18 @@ MonoBehaviour:
   m_details: Picking Up Key
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 301.9322
-    y: 591.20575
+    x: 893.76843
+    y: 648.3492
     width: 150
     height: 150
   m_nodeType: 4
   m_actionType: 1
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114182993801739958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +238,6 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
@@ -268,8 +264,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 821.69775
-    y: 526.89136
+    x: 552.31024
+    y: 586.07513
     width: 10
     height: 10
   m_connectedTo: {fileID: 114037036785798928}
@@ -317,7 +313,6 @@ MonoBehaviour:
   m_details: Open Door Again
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -329,7 +324,7 @@ MonoBehaviour:
     height: 150
   m_nodeType: 4
   m_actionType: 2
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114206664306675590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,8 +341,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 812.69775
-    y: 353.89136
+    x: 543.31024
+    y: 413.07513
     width: 13
     height: 13
   m_connectedTo: {fileID: 114391022173079318}
@@ -373,7 +368,6 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
@@ -400,8 +394,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 330.07043
-    y: 339.78232
+    x: 923.9475
+    y: 401.00687
     width: 13
     height: 13
   m_connectedTo: {fileID: 114389035674505692}
@@ -427,7 +421,6 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
@@ -459,7 +452,6 @@ MonoBehaviour:
   m_details: Ended
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -471,7 +463,7 @@ MonoBehaviour:
     height: 150
   m_nodeType: 4
   m_actionType: 2
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114389035674505692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,8 +480,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 581.36005
-    y: 212.12733
+    x: 728.29877
+    y: 293.75992
     width: 10
     height: 10
   m_connectedTo: {fileID: 114360611066356588}
@@ -510,8 +502,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 566.36005
-    y: 212.12733
+    x: 713.29877
+    y: 293.75992
     width: 10
     height: 10
   m_connectedTo: {fileID: 114206664306675590}
@@ -537,19 +529,18 @@ MonoBehaviour:
   m_details: Walk To Key
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 137.6601
-    y: 588.72626
+    x: 729.49634
+    y: 651.99207
     width: 150
     height: 150
   m_nodeType: 4
   m_actionType: 0
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 1
 --- !u!114 &114427758111814532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,8 +557,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 331.57043
-    y: 512.78235
+    x: 925.4475
+    y: 574.00684
     width: 10
     height: 10
   m_connectedTo: {fileID: 114613478650110238}
@@ -593,7 +584,6 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -605,7 +595,7 @@ MonoBehaviour:
     height: 150
   m_nodeType: 4
   m_actionType: 0
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114474437782078402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,8 +612,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 729.9847
-    y: 573.9618
+    x: 460.59717
+    y: 633.14575
     width: 13
     height: 13
   m_connectedTo: {fileID: 114179990830678002}
@@ -672,14 +662,13 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 744.19775
-    y: 371.89136
+    x: 474.81024
+    y: 431.07513
     width: 150
     height: 150
   m_nodeType: 3
@@ -704,7 +693,6 @@ MonoBehaviour:
   m_details: Walk To Key
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -716,7 +704,7 @@ MonoBehaviour:
     height: 150
   m_nodeType: 4
   m_actionType: 0
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114592351330175224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +726,6 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -750,7 +737,7 @@ MonoBehaviour:
     height: 150
   m_nodeType: 4
   m_actionType: 0
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114607605699361166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,8 +776,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 370.4322
-    y: 573.20575
+    x: 962.26843
+    y: 630.3492
     width: 13
     height: 13
   m_connectedTo: {fileID: 114427758111814532}
@@ -817,14 +804,13 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Selector
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 503.86005
-    y: 57.127335
+    x: 650.79877
+    y: 138.75992
     width: 150
     height: 150
   m_nodeType: 2
@@ -866,8 +852,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 346.57043
-    y: 512.78235
+    x: 940.4475
+    y: 574.00684
     width: 10
     height: 10
   m_connectedTo: {fileID: 114950724218781846}
@@ -895,14 +881,13 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Sequence
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 261.57043
-    y: 357.78232
+    x: 855.4475
+    y: 419.00687
     width: 150
     height: 150
   m_nodeType: 3
@@ -949,19 +934,18 @@ MonoBehaviour:
   m_details: Reseting Variables
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 467.85547
-    y: 588.6911
+    x: 1061.7327
+    y: 649.9162
     width: 150
     height: 150
   m_nodeType: 4
   m_actionType: 3
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114709907671586564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,7 +989,6 @@ MonoBehaviour:
   m_details: 
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -1017,7 +1000,7 @@ MonoBehaviour:
     height: 150
   m_nodeType: 4
   m_actionType: 0
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114736981094956722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,8 +1061,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 206.1601
-    y: 570.72626
+    x: 797.99634
+    y: 633.99207
     width: 13
     height: 13
   m_connectedTo: {fileID: 114100657824141224}
@@ -1105,7 +1088,6 @@ MonoBehaviour:
   m_details: Pick Up Key
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 0
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
@@ -1117,7 +1099,7 @@ MonoBehaviour:
     height: 150
   m_nodeType: 4
   m_actionType: 1
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114922355716760362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1139,19 +1121,18 @@ MonoBehaviour:
   m_details: OpenDoor
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 822.7869
-    y: 588.75366
+    x: 553.39935
+    y: 647.9376
     width: 150
     height: 150
   m_nodeType: 4
   m_actionType: 2
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0
 --- !u!114 &114932795954620696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,8 +1171,8 @@ MonoBehaviour:
   m_isOccupied: 1
   m_IORect:
     serializedVersion: 2
-    x: 536.35547
-    y: 570.6911
+    x: 1130.2327
+    y: 631.9162
     width: 13
     height: 13
   m_connectedTo: {fileID: 114651418251726678}
@@ -1217,16 +1198,15 @@ MonoBehaviour:
   m_details: Walk
   m_parentGraph: {fileID: 11400000}
   m_actionCompleted: 0
-  curWindow: {fileID: 0}
   m_nodeState: 1
   m_nodeName: Action Node
   m_nodeSkin: {fileID: 0}
   m_nodeRect:
     serializedVersion: 2
-    x: 661.4847
-    y: 591.9618
+    x: 392.09717
+    y: 651.14575
     width: 150
     height: 150
   m_nodeType: 4
   m_actionType: 0
-  m_object: {fileID: 0}
+  m_objectToMoveTo: 0

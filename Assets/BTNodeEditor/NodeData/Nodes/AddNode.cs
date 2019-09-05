@@ -14,17 +14,19 @@ namespace BTNE
         #region Variables
         public float m_nodeValue;
 
-        #endregion
+		#endregion
 
-        #region GettersAndSetters
-        #endregion
+		#region GettersAndSetters
+		#endregion
 
-        public override void InitNode()
+#if UNITY_EDITOR
+		public override void InitNode()
         {
             base.InitNode();
             m_nodeType = NodeType.ADD_NODE;
             m_nodeRect = new Rect(50f, 50f, 150f, 150f);
         }
+#endif
 
         public override NodeStates Evaluate()
         {

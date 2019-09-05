@@ -37,7 +37,6 @@ namespace BTNE
 		public string m_details;
 		public NodeGraph m_parentGraph;
 		public bool m_actionCompleted = false;
-		public NodeEditorWindow curWindow;
 
 		[SerializeField] protected NodeStates m_nodeState;
         [SerializeField] protected string m_nodeName = "New Node";
@@ -66,11 +65,12 @@ namespace BTNE
 
         #region Delegates
         public delegate NodeStates NodeReturn();
-        #endregion
+		#endregion
 
-        public virtual void InitNode()
+#if UNITY_EDITOR
+		public virtual void InitNode()
         {
-            curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
+			NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
 
             m_inputs = new List<NodeInput>();
             index = curWindow.GetCurrentGraph().m_nodes.Count;
@@ -88,8 +88,8 @@ namespace BTNE
 
             m_outputs.Add(output);
         }
-
-        public abstract NodeStates Evaluate();
+#endif
+		public abstract NodeStates Evaluate();
 
         public virtual void UpdateNode(Event _e, Rect _viewRect)
         {
@@ -98,8 +98,10 @@ namespace BTNE
 
 #if UNITY_EDITOR
         public virtual void UpdateNodeGUI(Event _e, Rect _viewRect, GUISkin _skin)
-        {
-            if (curWindow != null)
+		{
+			NodeEditorWindow curWindow = EditorWindow.GetWindow<NodeEditorWindow>() as NodeEditorWindow;
+
+			if (curWindow != null)
             {
                 int index = curWindow.GetCurrentGraph().m_nodes.IndexOf(this);
 
@@ -208,9 +210,10 @@ namespace BTNE
 				if (_e.button == 0)
 				{
 					m_parentGraph.SetSelectedNode(this);
+					BaseNode selectedNode = m_parentGraph.GetSelectedNode();
 					List<BaseNode> nodes = new List<BaseNode>();
-					nodes.Add(this);
-					if (m_outputs.Count > 0)
+					nodes.Add(selectedNode);
+					if (selectedNode.m_outputs.Count > 0)
 					{
 						foreach (NodeOutput output in m_outputs)
 						{

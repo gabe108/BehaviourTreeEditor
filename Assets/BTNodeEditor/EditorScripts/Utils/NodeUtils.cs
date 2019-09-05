@@ -56,10 +56,6 @@ namespace BTNE
                 if (curWindow != null)
                 {
                     curWindow.SetCurrentGraph(curGraph);
-					foreach(BaseNode node in curGraph.m_nodes)
-					{
-						node.curWindow = curWindow;
-					}
                 }
             }
         }
