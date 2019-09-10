@@ -13,11 +13,12 @@ namespace BTNE
     [System.Serializable]
     public class NodeGraph : ScriptableObject
     {
-        #region Variables
+		#region Variables
+		public bool m_active;
         public List<BaseNode> m_nodes;
         public BaseNodeIO m_connectionFrom;
         public List<Connection> m_connections;
-		public Player m_player;
+		public Agent m_player;
 		public GameObject m_actor;
 
         [SerializeField] private BaseNode m_selectedNode;

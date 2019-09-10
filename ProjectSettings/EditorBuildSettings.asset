@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/BTNodeEditor/Example Scene/Main.unity
     guid: f5e339943f4f7b547bcbc856352e160f
   m_configObjects: {}

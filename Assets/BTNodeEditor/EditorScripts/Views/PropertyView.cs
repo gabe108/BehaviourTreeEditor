@@ -75,14 +75,29 @@ namespace BTNE
 						GUILayout.Space(10);
 						GUILayout.EndHorizontal();
 
-						GUILayout.BeginHorizontal();
-						GUILayout.Space(10);
+						switch (actionNode.m_actionType)
+						{
+							case ActionType.WALK:
+								GUILayout.BeginHorizontal();
+								GUILayout.Space(10);
 
-						actionNode.m_objectToMoveTo = (ObjectType)EditorGUILayout.EnumPopup(
-							new GUIContent("Object To Move To"), actionNode.m_objectToMoveTo);
+								actionNode.m_moveToPos = (Vector3)EditorGUILayout.Vector3Field(
+									"", actionNode.m_moveToPos, GUILayout.MaxWidth(1000)); 
 
-						GUILayout.Space(10);
-						GUILayout.EndHorizontal();
+								GUILayout.Space(10);
+								GUILayout.EndHorizontal();
+								break;
+							case ActionType.PICKUPKEY:
+								break;
+							case ActionType.OPENDOOR:
+								break;
+							case ActionType.RESETVARIABLES:
+								break;
+							case ActionType.COUNT:
+								break;
+							default:
+								break;
+						}
 					}
                 }
             }

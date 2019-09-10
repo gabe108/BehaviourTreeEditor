@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.SceneManagement;
 
 namespace BTNE
@@ -12,21 +12,16 @@ namespace BTNE
 		PICKUPKEY,
 		OPENDOOR,
 		RESETVARIABLES,
+		DEACTIVATE_TREE,
 
         COUNT,
 	}
 
-	public enum ObjectType
-	{
-		DOOR,
-		KEY
-	}
     public class ActionNode : BaseNode
     {
         #region Variables
         public ActionType m_actionType;
-		//[SerializeField] public GameObject m_object;
-		public ObjectType m_objectToMoveTo;
+		public Vector3 m_moveToPos;
 		#endregion
 
 		#region GettersAndSetters
@@ -68,6 +63,10 @@ namespace BTNE
 					m_nodeState = ResetVariables();
 					break;
 
+				case ActionType.DEACTIVATE_TREE:
+					m_nodeState = DeactivateTree();
+					break;
+
 			}
 
             switch (m_nodeState)
@@ -87,7 +86,13 @@ namespace BTNE
             }
         }
 
-        public override void UpdateNode(Event _e, Rect _viewRect)
+		private NodeStates DeactivateTree()
+		{
+			m_parentGraph.m_active = false;
+			return NodeStates.SUCCESS;
+		}
+
+		public override void UpdateNode(Event _e, Rect _viewRect)
         {
             base.UpdateNode(_e, _viewRect);
         }
@@ -103,20 +108,8 @@ namespace BTNE
 			if (m_actionCompleted)
 				return NodeStates.SUCCESS;
 
-			GameObject objectToMoveTo = null;
-			switch (m_objectToMoveTo)
-			{
-				case ObjectType.DOOR:
-					objectToMoveTo = m_player.m_doorMovePoint;
-					break;
-				case ObjectType.KEY:
-					objectToMoveTo = m_player.m_key;
-					break;
-				default:
-					break;
-			}
 			Vector3 p1 = m_player.transform.position;
-			Vector3 p2 = objectToMoveTo.transform.position;
+			Vector3 p2 = m_moveToPos;
 
 			m_player.transform.position = Vector3.MoveTowards(p1, p2, 10.0f * Time.deltaTime);
 

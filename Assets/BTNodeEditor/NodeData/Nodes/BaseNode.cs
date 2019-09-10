@@ -33,7 +33,7 @@ namespace BTNE
         public int index;
         public List<NodeInput> m_inputs;
         public List<NodeOutput> m_outputs;
-		public Player m_player;
+		public Agent m_player;
 		public string m_details;
 		public NodeGraph m_parentGraph;
 		public bool m_actionCompleted = false;
@@ -130,7 +130,7 @@ namespace BTNE
 			if (m_parentGraph.isDragging)
 			{
 				UpdateNodeIndex(this);
-				if (m_inputs[0] != null)
+				if (m_inputs[0] != null && m_inputs[0].m_connectedTo != null)
 					m_inputs[0].m_connectedTo.m_holderNode.UpdateNodeIndex(m_inputs[0].m_connectedTo.m_holderNode);
 
 				m_parentGraph.isDragging = false;
